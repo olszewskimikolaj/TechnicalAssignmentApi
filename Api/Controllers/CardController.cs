@@ -16,7 +16,17 @@ public class CardController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Gets actions allowed for given user id and his card number based on card type and status
+    /// </summary>
+    /// <param name="userId">Selected user id</param>
+    /// <param name="cardNumber">Selected user's card number</param>
+    /// <returns>List of allowed actions for selected card of selected used, based on the kind and status of the card</returns>
+    /// <response code="200">All allowed actions returned</response>
+    /// <response code="500">An error occured when calling endpoint, no card actions were returned</response>
     [HttpGet]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(500)]
     [Route("AllowedActions")]
     public async Task<IActionResult> GetAllowedActions(string userId, string cardNumber)
     {
