@@ -1,6 +1,7 @@
-namespace TechnicalAssignmentApi.Interfaces;
-
-public interface ICardLogicController
+namespace TechnicalAssignmentApi.Interfaces
 {
-    public Task<List<string>> GetAllowedActions(string userId, string cardNumber);
+    public interface ICardLogicController
+    {
+        public Task<List<string>> GetAllowedActions(string userId, string cardNumber);
+    }
 }

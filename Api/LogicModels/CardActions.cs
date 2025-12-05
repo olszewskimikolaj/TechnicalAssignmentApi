@@ -3,199 +3,200 @@ using TechnicalAssignmentApi.Builders;
 using TechnicalAssignmentApi.Interfaces;
 using TechnicalAssignmentApi.Models;
 
-namespace TechnicalAssignmentApi.LogicModels;
-
-public class CardActions
+namespace TechnicalAssignmentApi.LogicModels
 {
-    private readonly IList<ICardActionsValidator> _cardActionsValidator;
-
-    public CardActions(CardDetails cardDetails)
+    public class CardActions
     {
-        _cardActionsValidator = new CardActionsValidatorBuilder()
-                                .AddCardActionsByCardKindValidator(cardDetails.CardType)
-                                .AddCardActionsByCardStatusAndPinValidator(cardDetails.CardStatus, cardDetails.IsPinSet)
-                                .Build();
-    }
+        private readonly IList<ICardActionsValidator> _cardActionsValidator;
 
-    [CardAction]
-    public bool Action1
-    {
-        get
+        public CardActions(CardDetails cardDetails)
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
-            {
-                allowed &= validator.Action1();
-            }
-            return allowed;
+            _cardActionsValidator = new CardActionsValidatorBuilder()
+                                    .AddCardActionsByCardKindValidator(cardDetails.CardType)
+                                    .AddCardActionsByCardStatusAndPinValidator(cardDetails.CardStatus, cardDetails.IsPinSet)
+                                    .Build();
         }
-    }
 
-    [CardAction]
-    public bool Action2
-    {
-        get
+        [CardAction]
+        public bool Action1
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action2();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action1();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action3
-    {
-        get
+        [CardAction]
+        public bool Action2
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action3();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action2();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action4
-    {
-        get
+        [CardAction]
+        public bool Action3
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action4();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action3();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action5
-    {
-        get
+        [CardAction]
+        public bool Action4
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action5();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action4();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action6
-    {
-        get
+        [CardAction]
+        public bool Action5
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action6();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action5();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action7
-    {
-        get
+        [CardAction]
+        public bool Action6
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action7();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action6();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action8
-    {
-        get
+        [CardAction]
+        public bool Action7
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action8();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action7();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action9
-    {
-        get
+        [CardAction]
+        public bool Action8
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action9();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action8();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action10
-    {
-        get
+        [CardAction]
+        public bool Action9
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action10();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action9();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action11
-    {
-        get
+        [CardAction]
+        public bool Action10
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action11();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action10();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action12
-    {
-        get
+        [CardAction]
+        public bool Action11
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action12();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action11();
+                }
+                return allowed;
             }
-            return allowed;
         }
-    }
 
-    [CardAction]
-    public bool Action13
-    {
-        get
+        [CardAction]
+        public bool Action12
         {
-            bool allowed = true;
-            foreach (var validator in _cardActionsValidator)
+            get
             {
-                allowed &= validator.Action13();
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action12();
+                }
+                return allowed;
             }
-            return allowed;
+        }
+
+        [CardAction]
+        public bool Action13
+        {
+            get
+            {
+                bool allowed = true;
+                foreach (var validator in _cardActionsValidator)
+                {
+                    allowed &= validator.Action13();
+                }
+                return allowed;
+            }
         }
     }
 }

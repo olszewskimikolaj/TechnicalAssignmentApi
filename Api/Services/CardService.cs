@@ -2,49 +2,50 @@ using TechnicalAssignmentApi.Enums;
 using TechnicalAssignmentApi.Interfaces;
 using TechnicalAssignmentApi.Models;
 
-namespace TechnicalAssignmentApi.Services;
-
-public class CardService : ICardService
+namespace TechnicalAssignmentApi.Services
 {
-    private readonly Dictionary<string, Dictionary<string, CardDetails>> _userCards = CreateSampleUserCards();
-
-    public async Task<CardDetails?> GetCardDetails(string userId, string cardNumber)
+    public class CardService : ICardService
     {
-        // At this point, we would typically make an HTTP call to an external service
-        // to fetch the data. For this example we use generated sample data.
-        await Task.Delay(1000);
-        if (!_userCards.TryGetValue(userId, out var cards)
-        || !cards.TryGetValue(cardNumber, out var cardDetails))
-        {
-            return null;
-        }
-        return cardDetails;
-    }
+        private readonly Dictionary<string, Dictionary<string, CardDetails>> _userCards = CreateSampleUserCards();
 
-    private static Dictionary<string, Dictionary<string, CardDetails>> CreateSampleUserCards()
-    {
-        var userCards = new Dictionary<string, Dictionary<string, CardDetails>>();
-        for (var i = 1; i <= 3; i++)
+        public async Task<CardDetails?> GetCardDetails(string userId, string cardNumber)
         {
-            var cards = new Dictionary<string, CardDetails>();
-            var cardIndex = 1;
-            foreach (CardType cardType in Enum.GetValues(typeof(CardType)))
+            // At this point, we would typically make an HTTP call to an external service
+            // to fetch the data. For this example we use generated sample data.
+            await Task.Delay(1000);
+            if (!_userCards.TryGetValue(userId, out var cards)
+            || !cards.TryGetValue(cardNumber, out var cardDetails))
             {
-                foreach (CardStatus cardStatus in Enum.GetValues(typeof(CardStatus)))
-                {
-                    var cardNumber = $"Card{i}{cardIndex}";
-                    cards.Add(cardNumber,
-                    new CardDetails(
-                    CardNumber: cardNumber,
-                    CardType: cardType,
-                    CardStatus: cardStatus,
-                    IsPinSet: cardIndex % 2 == 0));
-                    cardIndex++;
-                }
+                return null;
             }
-            var userId = $"User{i}";
-            userCards.Add(userId, cards);
+            return cardDetails;
         }
-        return userCards;
+
+        private static Dictionary<string, Dictionary<string, CardDetails>> CreateSampleUserCards()
+        {
+            var userCards = new Dictionary<string, Dictionary<string, CardDetails>>();
+            for (var i = 1; i <= 3; i++)
+            {
+                var cards = new Dictionary<string, CardDetails>();
+                var cardIndex = 1;
+                foreach (CardType cardType in Enum.GetValues(typeof(CardType)))
+                {
+                    foreach (CardStatus cardStatus in Enum.GetValues(typeof(CardStatus)))
+                    {
+                        var cardNumber = $"Card{i}{cardIndex}";
+                        cards.Add(cardNumber,
+                        new CardDetails(
+                        CardNumber: cardNumber,
+                        CardType: cardType,
+                        CardStatus: cardStatus,
+                        IsPinSet: cardIndex % 2 == 0));
+                        cardIndex++;
+                    }
+                }
+                var userId = $"User{i}";
+                userCards.Add(userId, cards);
+            }
+            return userCards;
+        }
     }
 }

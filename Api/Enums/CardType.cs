@@ -1,8 +1,9 @@
-namespace TechnicalAssignmentApi.Enums;
-
-public enum CardType
+namespace TechnicalAssignmentApi.Enums
 {
-    Prepaid = 1 << 0,
-    Debit = 1 << 1,
-    Credit = 1 << 2
+    public enum CardType
+    {
+        Prepaid = 1 << 0,
+        Debit = 1 << 1,
+        Credit = 1 << 2
+    }
 }

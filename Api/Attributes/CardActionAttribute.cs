@@ -1,6 +1,7 @@
-namespace TechnicalAssignmentApi.Attributes;
-
-public class CardActionAttribute : Attribute
+namespace TechnicalAssignmentApi.Attributes
 {
-    
+    public class CardActionAttribute : Attribute
+    {
+
+    }
 }
